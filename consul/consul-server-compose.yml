@@ -1,0 +1,27 @@
+version: '3.1'
+ 
+services:
+  consul-server:
+    image: consul
+    container_name: consul-server
+    hostname: consul-server
+    network_mode: host
+    restart: always
+    entrypoint:
+      - consul
+      - agent
+      - -server
+      - -bootstrap
+      - -data-dir=/consul/data
+      - -datacenter=dc1
+      - -bind={{ GetInterfaceIP "eth0" }}
+      - -client=0.0.0.0
+      - -ui
+    ports:
+      - 8300:8300
+      - 8301:8301
+      - 8301:8301/udp
+      - 8302:8302
+      - 8302:8302/udp
+      - 8400:8400
+      - 8500:8500
