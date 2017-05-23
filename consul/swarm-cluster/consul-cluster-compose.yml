@@ -6,8 +6,8 @@ version: '3.1'
 services:
 
   seed:
-    hostname: seed
     image: consul:0.8.0
+    hostname: seed
     deploy:
       restart_policy:
         condition: none  #we do not want this to be restarted on timeout (see entrypoint options below)
@@ -33,6 +33,7 @@ services:
 
   cluster:
     image: consul:0.8.0
+    container_name: consul-server
     depends_on:
       - "seed"
     deploy:

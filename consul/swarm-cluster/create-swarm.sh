@@ -53,6 +53,6 @@ docker-machine ssh consul-manager-1 docker run -it -d -p 8080:8080 -e HOST=${man
 
 printf "\n\n------------------------------------\n"
 echo "${GREEN} To connect to your cluster... ${NONE}"
-echo "${GREEN} eval $(docker-machine env consul-manager-1) ${NONE}"
+echo "$'{GREEN} eval $(docker-machine env consul-manager-1)' ${NONE}"
 echo "${GREEN} To visualize your cluster... ${NONE}"
 echo "${GREEN} Open a browser to http://${manager_ip}:8080/ ${NONE}"
